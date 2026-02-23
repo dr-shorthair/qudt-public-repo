@@ -243,11 +243,6 @@ qudt:Concept
     a owl:Restriction ;
     owl:maxCardinality "1"^^xsd:int ;
     owl:onProperty qudt:id ;
-  ] ;
-  rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:maxCardinality "1"^^xsd:int ;
-    owl:onProperty qudt:plainTextDescription ;
   ] .
 
 qudt:ConstantValue
@@ -812,11 +807,6 @@ qudt:PhysicalConstant
     a owl:Restriction ;
     owl:minCardinality "0"^^xsd:int ;
     owl:onProperty qudt:altSymbol ;
-  ] ;
-  rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-    owl:onProperty qudt:dbpediaMatch ;
   ] ;
   rdfs:subClassOf [
     a owl:Restriction ;
@@ -2009,7 +1999,7 @@ qudt:hasAllowedUnit
   rdfs:subPropertyOf qudt:hasUnit .
 
 qudt:hasBaseQuantityKind
-  a owl:ObjectProperty, owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
   rdfs:isDefinedBy <http://qudt.org/$$QUDT_VERSION$$/schema/qudt> ;
   rdfs:label "has base quantity kind" ;
   rdfs:subPropertyOf qudt:hasQuantityKind .
@@ -2306,8 +2296,7 @@ dtype:literal
   a owl:DatatypeProperty ;
   rdfs:isDefinedBy <http://qudt.org/$$QUDT_VERSION$$/schema/qudt> ;
   rdfs:label "literal" ;
-  rdfs:range xsd:string ;
-  rdfs:subPropertyOf dtype:literal .
+  rdfs:range rdfs:Literal .
 
 qudt:abbreviation
   a owl:DatatypeProperty ;
@@ -2349,7 +2338,7 @@ qudt:conversionMultiplierSN
   a owl:DatatypeProperty, owl:FunctionalProperty ;
   rdfs:isDefinedBy <http://qudt.org/$$QUDT_VERSION$$/schema/qudt> ;
   rdfs:label "conversion multiplier scientific" ;
-  rdfs:range xsd:decimal .
+  rdfs:range xsd:double .
 
 qudt:conversionOffset
   a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -2692,7 +2681,7 @@ qudt:plainTextDescription
   dcterms:description "A plain text description is used to provide a description with only simple ASCII characters for cases where LaTeX , HTML or other markup would not be appropriate."^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/$$QUDT_VERSION$$/schema/qudt> ;
   rdfs:label "description (plain text)" ;
-  rdfs:range xsd:string .
+  rdfs:range rdfs:Literal .
 
 qudt:positiveDeltaLimit
   a owl:DatatypeProperty ;
@@ -3108,17 +3097,6 @@ qudt:Verifiable
   rdfs:isDefinedBy <http://qudt.org/$$QUDT_VERSION$$/schema/qudt> ;
   rdfs:label "Verifiable" ;
   rdfs:subClassOf qudt:Aspect ;
-  rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-    owl:onProperty qudt:dbpediaMatch ;
-  ] ;
-  rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-    owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-    owl:onProperty qudt:wikidataMatch ;
-  ] ;
   rdfs:subClassOf [
     a owl:Restriction ;
     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
